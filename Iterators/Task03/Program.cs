@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
+using System.Globalization;
 
 /* На вход подается число N.
  * На каждой из следующих N строках записаны ФИО человека, 
@@ -38,6 +39,7 @@ namespace Task03
         {
             try
             {
+                CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
                 Console.OutputEncoding = Encoding.GetEncoding("windows-1251");
                 int N = 0;
                 if (!int.TryParse(Console.ReadLine(), out N) || N < 0)
