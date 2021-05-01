@@ -42,7 +42,11 @@ namespace Task02
         {
             for (int i = start - 1; i < start + values.Length - 1; i++)
             {
-                yield return values[i % values.Length].Trim(' ');
+                string result = values[i % values.Length].Trim(' ');
+                if (result != String.Empty)
+                {
+                    yield return result;
+                }
             }
         }
         IEnumerator IEnumerable.GetEnumerator()
