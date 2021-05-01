@@ -42,7 +42,7 @@ namespace Task02
         {
             for (int i = start - 1; i < start + values.Length - 1; i++)
             {
-                yield return values[i % values.Length];
+                yield return values[i % values.Length].Trim();
             }
         }
         IEnumerator IEnumerable.GetEnumerator()
@@ -62,13 +62,15 @@ namespace Task02
                 }
                 string input = Console.ReadLine();
                 string[] values = input.Split(' ');
+                if (values.Length < startingIndex)
+                {
+                    throw new ArgumentException();
+                }
                 foreach (string ob in new IteratorSample(values, startingIndex))
                 {
                     Console.Write(ob + " ");
                 }
                 Console.WriteLine();
-                Console.WriteLine(input);
-                Console.WriteLine(startingIndex);
             }
             catch (ArgumentException)
             {
