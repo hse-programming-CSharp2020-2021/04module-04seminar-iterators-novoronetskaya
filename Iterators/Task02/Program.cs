@@ -67,7 +67,8 @@ namespace Task02
                     Console.Write(ob + " ");
                 }
                 Console.WriteLine();
-                Console.WriteLine(input, startingIndex);
+                Console.WriteLine(input);
+                Console.WriteLine(startingIndex);
             }
             catch (ArgumentException)
             {
