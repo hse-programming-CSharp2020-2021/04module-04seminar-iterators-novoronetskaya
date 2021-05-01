@@ -38,9 +38,7 @@ namespace Task05
                 MyDigits myDigits = new MyDigits();
                 IEnumerator enumerator = myDigits.MyEnumerator(value);
                 IterateThroughEnumeratorWithoutUsingForeach(enumerator);
-                Console.WriteLine();
                 IterateThroughEnumeratorWithoutUsingForeach(enumerator);
-                Console.WriteLine();
                 IterateThroughEnumeratorWithoutUsingForeach(enumerator);
             }
             catch (ArgumentException)
@@ -64,27 +62,22 @@ namespace Task05
     }
     class MyDigits : IEnumerator // НЕ МЕНЯТЬ ЭТУ СТРОКУ
     {
-        private int position = -1;
-        private int[] numbers;
+        private int count;
+        private int position;
         public MyDigits()
         {
         }
-        public MyDigits(int[] numbers)
+        public MyDigits(int value)
         {
-            this.numbers = numbers;
+            count = value;
         }
         public IEnumerator MyEnumerator(int value)
         {
-            numbers = new int[value];
-            for (int i = 1; i <= value; i++)
-            {
-                numbers[i - 1] = (int)Math.Pow(i, 10);
-            }
-            return new MyDigits(numbers);
+            return new MyDigits();
         }
         public bool MoveNext()
         {
-            if (position < numbers.Length - 1)
+            if (position < count - 1)
             {
                 position++;
                 return true;
@@ -92,7 +85,7 @@ namespace Task05
             Reset();
             return false;
         }
-        public object Current => numbers[position];
+        public object Current => (int)Math.Pow(position + 1, 10);
         public void Reset()
         {
             position = -1;

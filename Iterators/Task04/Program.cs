@@ -56,10 +56,10 @@ namespace Task04
     class MyInts : IEnumerator // НЕ МЕНЯТЬ ЭТУ СТРОКУ
     {
         private int position = -1;
-        private int[] squares;
+        private int count;
         public bool MoveNext()
         {
-            if (position < squares.Length - 1)
+            if (position < count - 1)
             {
                 position++;
                 return true;
@@ -69,26 +69,18 @@ namespace Task04
         }
         public MyInts()
         { }
-        public MyInts(int[] squares)
+        public MyInts(int value)
         {
-            this.squares = squares;
+            count = value;
         }
         public IEnumerator MyEnumerator(int value)
         {
-            squares = new int[value];
-            for (int i = 0; i < value; i++)
-            {
-                squares[i] = (i + 1) * (i + 1);
-            }
-            return new MyInts(squares);
+            return new MyInts(value);
         }
         public void Reset()
         {
             position = -1;
         }
-        public object Current
-        {
-            get => squares[position];
-        }
+        public object Current => (position + 1) * (position + 1);
     }
 }
