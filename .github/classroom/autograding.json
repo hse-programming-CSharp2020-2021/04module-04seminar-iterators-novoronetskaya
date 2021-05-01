@@ -129,6 +129,126 @@
       "comparison": "included",
       "timeout": 10,
       "points": 1
+    },
+    {
+      "name": "Task03-Test04",
+      "setup": "csc Iterators/Task03/Program.cs",
+      "run": "mono Program.exe",
+      "input": "4\r\nиванова инна\r\nиванов иван\r\nиванов артем\r\nиванова анна",
+      "output": "Иванов А.\r\nИванов И.\r\nИванова А.\r\nИванова И.\r\n\r\nИванова И.\r\nИванов И.\r\nИванов А.\r\nИванова А.",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task03-Test05",
+      "setup": "csc Iterators/Task03/Program.cs",
+      "run": "mono Program.exe",
+      "input": "5\r\na\r\nb\r\nc\r\nd\r\ne",
+      "output": "error",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task04-Test01",
+      "setup": "csc Iterators/Task04/Program.cs",
+      "run": "mono Program.exe",
+      "input": "3",
+      "output": "1 4 9\r\n1 4 9",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task04-Test02",
+      "setup": "csc Iterators/Task04/Program.cs",
+      "run": "mono Program.exe",
+      "input": "10",
+      "output": "1 4 9 16 25 36 49 64 81 100\r\n1 4 9 16 25 36 49 64 81 100",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task04-Test03",
+      "setup": "csc Iterators/Task04/Program.cs",
+      "run": "mono Program.exe",
+      "input": "-10",
+      "output": "error",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task04-Test04",
+      "setup": "csc Iterators/Task04/Program.cs",
+      "run": "mono Program.exe",
+      "input": "asd",
+      "output": "error",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task04-Test05",
+      "setup": "csc Iterators/Task04/Program.cs",
+      "run": "mono Program.exe",
+      "input": "1",
+      "output": "1\r\n1",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task05-Test01",
+      "setup": "csc Iterators/Task05/Program.cs",
+      "run": "mono Program.exe",
+      "input": "3",
+      "output": "1 1024 59049\r\n59049 1024 1\r\n1 1024 59049",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task05-Test02",
+      "setup": "csc Iterators/Task05/Program.cs",
+      "run": "mono Program.exe",
+      "input": "1",
+      "output": "1\r\n1\r\n1",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task05-Test03",
+      "setup": "csc Iterators/Task05/Program.cs",
+      "run": "mono Program.exe",
+      "input": "10",
+      "output": "1 1024 59049 1048576 9765625 60466176 282475249 1073741824 3486784401 10000000000\r\n10000000000 3486784401 1073741824 282475249 60466176 9765625 1048576 59049 1024 1\r\n1 1024 59049 1048576 9765625 60466176 282475249 1073741824 3486784401 10000000000",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task05-Test04",
+      "setup": "csc Iterators/Task05/Program.cs",
+      "run": "mono Program.exe",
+      "input": "7",
+      "output": "1 1024 59049 1048576 9765625 60466176 282475249\r\n282475249 60466176 9765625 1048576 59049 1024 1\r\n1 1024 59049 1048576 9765625 60466176 282475249",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task05-Test05",
+      "setup": "csc Iterators/Task05/Program.cs",
+      "run": "mono Program.exe",
+      "input": "12345678987654321a",
+      "output": "error",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
     }
   ]
 }
