@@ -27,10 +27,13 @@ namespace Task04
         {
             try
             {
-                int value = 
+                int value = 0;
+                if (!int.TryParse(Console.ReadLine(), out value) || value < 0)
+                {
+                    throw new ArgumentException();
+                }
                 MyInts myInts = new MyInts();
                 IEnumerator enumerator = myInts.MyEnumerator(value);
-
                 IterateThroughEnumeratorWithoutUsingForeach(enumerator);
                 Console.WriteLine();
                 IterateThroughEnumeratorWithoutUsingForeach(enumerator);
@@ -38,24 +41,52 @@ namespace Task04
             catch (ArgumentException)
             {
                 Console.WriteLine("error");
-            }
-            
+            }           
         }
-
         static void IterateThroughEnumeratorWithoutUsingForeach(IEnumerator enumerator)
         {
+            while(enumerator.MoveNext())
+            {
+                Console.Write($"{enumerator.Current} ");
+            }
+            enumerator.Reset();
         }
     }
-
     class MyInts : IEnumerator // НЕ МЕНЯТЬ ЭТУ СТРОКУ
     {
-        
+        private int Position = -1;
+        private int[] squares;
         public bool MoveNext()
         {
+            if (Position < squares.Length - 1)
+            {
+                Position++;
+                return true;
+            }
+            return false;
         }
-
+        public MyInts()
+        { }
+        public MyInts(int[] squares)
+        {
+            this.squares = squares;
+        }
+        public IEnumerator MyEnumerator(int value)
+        {
+            squares = new int[value];
+            for (int i = 0; i < value; i++)
+            {
+                squares[i] = (i + 1) * (i + 1);
+            }
+            return new MyInts(squares);
+        }
+        public void Reset()
+        {
+            Position = -1;
+        }
         public object Current
         {
+            get => squares[Position];
         }
     }
 }
