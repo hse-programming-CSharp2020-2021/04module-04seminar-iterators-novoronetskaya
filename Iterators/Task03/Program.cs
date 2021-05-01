@@ -36,7 +36,7 @@ namespace Task03
     {
         static void Main()
         {
-            Console.OutputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.Unicode;
             try
             {
                 int N = 0;
