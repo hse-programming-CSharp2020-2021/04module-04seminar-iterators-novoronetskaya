@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
-using System.Globalization;
 
 /* На вход подается число N.
  * На каждой из следующих N строках записаны ФИО человека, 
@@ -39,7 +38,8 @@ namespace Task03
         {
             try
             {
-                Console.OutputEncoding = Encoding.ASCII;
+                Console.OutputEncoding = Encoding.UTF8;
+                Console.InputEncoding = Encoding.UTF8;
                 int N = 0;
                 if (!int.TryParse(Console.ReadLine(), out N) || N < 0)
                 {
