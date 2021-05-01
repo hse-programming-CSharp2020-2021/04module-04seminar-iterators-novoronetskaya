@@ -38,7 +38,7 @@ namespace Task03
         {
             try
             {
-                Console.OutputEncoding = Encoding.UTF32;
+                Console.OutputEncoding = Encoding.UTF7;
                 int N = 0;
                 if (!int.TryParse(Console.ReadLine(), out N) || N < 0)
                 {
