@@ -39,8 +39,7 @@ namespace Task03
         {
             try
             {
-                CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
-                Console.OutputEncoding = Encoding.GetEncoding("windows-1251");
+                Console.OutputEncoding = Encoding.ASCII;
                 int N = 0;
                 if (!int.TryParse(Console.ReadLine(), out N) || N < 0)
                 {
