@@ -78,16 +78,20 @@ namespace Task03
         public string lastName;
         public Person(string firstName, string lastName)
         {
-            this.firstName = firstName;
+            this.firstName = firstName.ToUpper()[0] + firstName.Substring(1, firstName.Length - 1);
             this.lastName = lastName.ToUpper()[0] + lastName.Substring(1, lastName.Length - 1);
         }
         public int CompareTo(Person b)
         {
+            if (lastName.Equals(b.lastName))
+            {
+                return firstName.CompareTo(b.firstName);
+            }
             return lastName.CompareTo(b.lastName);
         }
         public override string ToString()
         {
-            return $"{lastName} {firstName.ToUpper()[0]}.";
+            return $"{lastName} {firstName[0]}.";
         }
     }
     public class People : IEnumerable
