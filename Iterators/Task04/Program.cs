@@ -36,7 +36,6 @@ namespace Task04
                 MyInts myInts = new MyInts();
                 IEnumerator enumerator = myInts.MyEnumerator(value);
                 IterateThroughEnumeratorWithoutUsingForeach(enumerator);
-                Console.WriteLine();
                 IterateThroughEnumeratorWithoutUsingForeach(enumerator);
             }
             catch (ArgumentException)
@@ -56,13 +55,13 @@ namespace Task04
     }
     class MyInts : IEnumerator // НЕ МЕНЯТЬ ЭТУ СТРОКУ
     {
-        private int Position = -1;
+        private int position = -1;
         private int[] squares;
         public bool MoveNext()
         {
-            if (Position < squares.Length - 1)
+            if (position < squares.Length - 1)
             {
-                Position++;
+                position++;
                 return true;
             }
             Reset();
@@ -85,11 +84,11 @@ namespace Task04
         }
         public void Reset()
         {
-            Position = -1;
+            position = -1;
         }
         public object Current
         {
-            get => squares[Position];
+            get => squares[position];
         }
     }
 }
