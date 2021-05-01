@@ -79,7 +79,7 @@ namespace Task03
         public Person(string firstName, string lastName)
         {
             this.firstName = firstName;
-            this.lastName = lastName;
+            this.lastName = lastName.ToUpper()[0] + lastName.Substring(1, lastName.Length - 1);
         }
         public int CompareTo(Person b)
         {
