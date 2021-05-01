@@ -36,9 +36,9 @@ namespace Task03
     {
         static void Main()
         {
-            Console.OutputEncoding = Encoding.Unicode;
             try
             {
+                Console.OutputEncoding = Encoding.UTF32;
                 int N = 0;
                 if (!int.TryParse(Console.ReadLine(), out N) || N < 0)
                 {
