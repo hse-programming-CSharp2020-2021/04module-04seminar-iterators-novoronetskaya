@@ -60,12 +60,14 @@ namespace Task02
                 {
                     throw new ArgumentException();
                 }
-                string[] values = Console.ReadLine().Split(' ');
+                string input = Console.ReadLine();
+                string[] values = input.Split(' ');
                 foreach (string ob in new IteratorSample(values, startingIndex))
                 {
                     Console.Write(ob + " ");
                 }
                 Console.WriteLine();
+                Console.WriteLine(input);
             }
             catch (ArgumentException)
             {

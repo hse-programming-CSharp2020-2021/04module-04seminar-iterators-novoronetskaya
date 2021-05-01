@@ -43,7 +43,7 @@ namespace Task01
         {
             int a = 1;
             int b = 1;
-            while (a < maxValue)
+            while (a <= maxValue)
             {
                 yield return a;
                 int swap = b;
