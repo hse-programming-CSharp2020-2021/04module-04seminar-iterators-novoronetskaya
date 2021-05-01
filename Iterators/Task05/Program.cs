@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Text;
 
 /* На вход подается число N.
  * Нужно создать коллекцию из N элементов последовательного ряда натуральных чисел, возведенных в 10 степень, 
@@ -53,11 +54,13 @@ namespace Task05
         }
         static void IterateThroughEnumeratorWithoutUsingForeach(IEnumerator enumerator)
         {
+            StringBuilder sb = new StringBuilder();
             while (enumerator.MoveNext())
             {
-                Console.Write($"{enumerator.Current} ");
+                sb.Append($"{enumerator.Current} ");
             }
             (enumerator as MyDigits).Reversed = !(enumerator as MyDigits).Reversed;
+            Console.Write(sb.ToString().Trim());
         }
     }
     class MyDigits : IEnumerator // НЕ МЕНЯТЬ ЭТУ СТРОКУ
@@ -92,9 +95,9 @@ namespace Task05
             {
                 if (Reversed)
                 {
-                    return (int)Math.Pow(count - position, 10);
+                    return Math.Pow(count - position, 10);
                 }
-                return (int)Math.Pow(position + 1, 10);
+                return Math.Pow(position + 1, 10);
             }
         }
         public void Reset()
