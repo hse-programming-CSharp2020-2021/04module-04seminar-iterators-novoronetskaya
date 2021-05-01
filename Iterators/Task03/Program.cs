@@ -38,7 +38,7 @@ namespace Task03
         {
             try
             {
-                Console.OutputEncoding = Encoding.UTF8;
+                Console.OutputEncoding = Encoding.GetEncoding("windows-1251");
                 int N = 0;
                 if (!int.TryParse(Console.ReadLine(), out N) || N < 0)
                 {
