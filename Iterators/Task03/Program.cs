@@ -33,20 +33,35 @@ namespace Task03
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             try
             {
-                int N =
+                int N = 0;
+                if (!int.TryParse(Console.ReadLine(), out N) || N < 0)
+                {
+                    throw new ArgumentException();
+                }
                 Person[] people = new Person[N];
-
+                for (int i = 0; i < N; i++)
+                {
+                    string[] data = Console.ReadLine().Split(' ');
+                    if (data.Length < 2 || data.Length > 3)
+                    {
+                        throw new ArgumentException();
+                    }
+                    people[i] = new Person(data[1], data[0]);
+                }
                 People peopleList = new People(people);
-
                 foreach (Person p in peopleList)
+                {
                     Console.WriteLine(p);
-
+                }
+                Console.WriteLine();
                 foreach (Person p in peopleList.GetPeople)
+                {
                     Console.WriteLine(p);
+                }
             }
             catch (ArgumentException)
             {
@@ -54,63 +69,80 @@ namespace Task03
             }
         }
     }
-
-    public class Person
+    public class Person : IComparable<Person>
     {
         public string firstName;
         public string lastName;
-
         public Person(string firstName, string lastName)
         {
             this.firstName = firstName;
             this.lastName = lastName;
         }
-
-    
+        public int CompareTo(Person b)
+        {
+            return lastName.CompareTo(b.lastName);
+        }
+        public override string ToString()
+        {
+            return $"{lastName} {firstName.ToUpper()[0]}.";
+        }
     }
-
-
     public class People : IEnumerable
     {
         private Person[] _people;
+        public People(Person[] people)
+        {
+            _people = people;
+        }
         public Person[] GetPeople
         {
-            get {
+            get 
+            {
                 return _people;
             }
         }
-        
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
-
         public PeopleEnum GetEnumerator()
         {
             return new PeopleEnum(_people);
         }
     }
-    
     public class PeopleEnum : IEnumerator
     {
         public Person[] _people;
-
-      
-
+        private int Position = -1;
+        public PeopleEnum(Person[] people)
+        {
+            _people = new Person[people.Length];
+            Array.Copy(people, _people, people.Length);
+            Array.Sort(_people);
+        }
         public bool MoveNext()
         {
-            
+            if (Position < _people.Length - 1)
+            {
+                Position++;
+                return true;
+            }
+            return false;
         }
-
         public void Reset()
         {
-            
+            Position = -1;
         }
-       
-
         public Person Current
         {
-            
+            get
+            {
+                return _people[Position];
+            }
+        }
+        object IEnumerator.Current
+        {
+            get => Current;
         }
     }
 }
